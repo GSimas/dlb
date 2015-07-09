@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1436313789 source:c:\users\gustavo\documents\github\dlb\dlb\main.c
+	<stdlib.h>
+	<stdio.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/bitmap.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"engine.h"
+	"objects.h"
+
+1436311825 source:c:\users\gustavo\documents\github\dlb\dlb\engine.c
+	<stdlib.h>
+	<stdio.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/bitmap.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"engine.h"
+	"objects.h"
+
+1436267503 c:\users\gustavo\documents\github\dlb\dlb\objects.h
+
+1436267318 c:\users\gustavo\documents\github\dlb\dlb\engine.h
+
+1436313846 source:c:\users\gustavo\desktop\dlb\engine.c
+	<stdlib.h>
+	<stdio.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/bitmap.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"engine.h"
+	"objects.h"
+
+1436267318 c:\users\gustavo\desktop\dlb\engine.h
+
+1436267503 c:\users\gustavo\desktop\dlb\objects.h
+
+1436313789 source:c:\users\gustavo\desktop\dlb\main.c
+	<stdlib.h>
+	<stdio.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/bitmap.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"engine.h"
+	"objects.h"
+
