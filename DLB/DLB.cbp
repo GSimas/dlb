@@ -15,7 +15,7 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="..\..\..\IFSC\0-Softwares\CodeBlocks\allegro-5.0.10-mingw-4.7.0\lib\liballegro-5.0.10-monolith-mt-debug.a" />
+					<Add library="..\..\..\IFSC\0-Softwares\CodeBlocks\allegro-5.0.10-mingw-4.7.0\lib\liballegro-5.0.10-monolith-md-debug.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -34,7 +34,6 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="../../../IFSC/0-Softwares/CodeBlocks/allegro-5.0.10-mingw-4.7.0/lib" />
 		</Compiler>
 		<Unit filename="engine.c">
 			<Option compilerVar="CC" />

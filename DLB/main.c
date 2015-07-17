@@ -18,7 +18,6 @@ const int FPS = 60;
 enum KEYS {ESC, W, A, S, D, SPACE};
 bool keys[6] = {false, false, false, false, false, false};
 
-
 int main(void)
 {
 
@@ -26,14 +25,12 @@ int main(void)
     bool redraw = true;
 
     struct Player player;
-    struct Sound sound;
+    struct Sound sound[4];
+    struct Key key[5];
 
     ALLEGRO_DISPLAY *display = NULL;
     ALLEGRO_EVENT_QUEUE *event_queue = NULL;
     ALLEGRO_TIMER *timer = NULL;
-
-    ALLEGRO_SAMPLE *vento = NULL;
-    ALLEGRO_SAMPLE_INSTANCE *vento1 = NULL;
 
     //Allegro Initializations
 
@@ -59,8 +56,8 @@ int main(void)
         return -1;
     };
 
-    al_reserve_samples(4);
-    if(!al_reserve_samples(4))
+    al_reserve_samples(6);
+    if(!al_reserve_samples(6))
     {
         printf("Falha ao reservar samples");
         return -1;
@@ -91,15 +88,10 @@ int main(void)
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    vento = al_load_sample("sounds/vento.ogg");
-    vento1 = al_create_sample_instance(vento);
-    al_attach_sample_instance_to_mixer(vento1, al_get_default_mixer());
-    al_set_sample_instance_gain(vento1, 0);
-    al_play_sample_instance(vento1);
-
     //Game Initializations
     InitPlayer(player);
     InitSound(sound);
+    InitKey(key);
 
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -118,8 +110,6 @@ int main(void)
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    float i=0;
-
     while(!done)
     {
         ALLEGRO_EVENT ev;
@@ -132,22 +122,10 @@ int main(void)
         {
             redraw = true;
 
-            if(keys[W])
-            {
-                al_play_sample_instance(player.passo_instance[0]);
-                al_set_sample_instance_gain(vento1, i);
-                i+=0.001;
-            }
-            if(keys[A])
-                al_play_sample_instance(player.passo_instance[2]);
-            if(keys[D])
-                al_play_sample_instance(player.passo_instance[2]);
-            if(keys[S])
-            {
-                al_play_sample_instance(player.passo_instance[1]);
-                al_set_sample_instance_gain(vento1, i);
-                i-=0.001;
-            }
+            PlayerWalk(player, sound, key, &keys[W], &keys[A], &keys[S], &keys[D]);
+
+            Musics(player, sound, &keys[W], &keys[S], &keys[A], &keys[D]);
+            PlayMusics(player, sound);
         }
 
         else if(ev.type == ALLEGRO_EVENT_KEY_DOWN)
@@ -194,11 +172,17 @@ int main(void)
 
     //Allegro destruction
     al_destroy_display(display);
-    al_destroy_sample(vento);
-    al_destroy_sample_instance(vento1);
-    al_destroy_sample_instance(player.passo_instance[0]);
-    al_destroy_sample_instance(player.passo_instance[1]);
-    al_destroy_sample_instance(player.passo_instance[2]);
+    al_destroy_sample(sound[0].sample);
+    al_destroy_sample(sound[1].sample);
+    al_destroy_sample(sound[2].sample);
+    al_destroy_sample_instance(sound[0].instance);
+    al_destroy_sample_instance(sound[1].instance);
+    al_destroy_sample_instance(sound[2].instance);
+    al_destroy_sample_instance(key[0].instance[0]);
+    al_destroy_sample_instance(key[1].instance[0]);
+    al_destroy_sample_instance(key[1].instance[1]);
+    al_destroy_sample_instance(key[2].instance[0]);
+    al_destroy_sample_instance(key[2].instance[1]);
 
     ////////////////////////////////////////////////////////////////////////////////
 
